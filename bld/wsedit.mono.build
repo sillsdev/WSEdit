@@ -435,9 +435,15 @@
 
 	<target name="copy-mono-lib-files" depends="make-output-dir, set-build-config, set-runtime-config">
 		<property name="project.lib.dir" value="${path::combine(project.lib.base.dir,runtime.platform)}"/>
-		<echo message="${project.lib.dir}" />
+		<property name="project.lib.common.dir" value="${path::combine(project.lib.base.dir,'common')}"/>
+		<echo message="${project.lib.dir} and ${project.lib.common.dir}" />
 		<copy todir="${project.output.dir}">
 			<fileset basedir="${project.lib.dir}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${project.output.dir}">
+			<fileset basedir="${project.lib.common.dir}">
 				<include name="*.*" />
 			</fileset>
 		</copy>
