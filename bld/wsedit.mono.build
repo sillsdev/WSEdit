@@ -62,7 +62,7 @@
 	</target>
 
 	<target name="revision_teamcityhg">
-		<property name="teamcity" value="${environment::get-variable('BUILD_NUMBER')}" />
+		<property name="teamcity" value="${environment::get-variable('BUILD_NUMBER')}" overwrite="false" />
 		<regex pattern="^(?'revision'[^:]*)" input="${teamcity}" />
 		<property name="revision" value="${string::trim(revision)}" />
 		<echo message="Revision: ${revision}" />
@@ -72,7 +72,7 @@
 		<property name="revision" value="${environment::get-variable(BUILD_NUMBER)}"/>
 	</target>
 
-	<target name="version" depends="revision">
+	<target name="version" depends="revision_teamcityhg">
 		<loadfile property="version" file="version.txt">
 			<filterchain>
 				<expandproperties />
@@ -202,7 +202,7 @@
 	</target>
 
 	<target name="dist" depends="assemblyinfo make-output-dir, set-build-config, set-runtime-config">
-		<tar destfile="${project.output.dir}/wesay-src-${version}.tar.gz" compression="GZip">
+		<tar destfile="${project.output.dir}/wsedit-src-${version}.tar.gz" compression="GZip">
 			<fileset basedir="${project.base.dir}">
 				<include name="src/**/*.build" />
 				<include name="src/**/*.cs" />
@@ -211,6 +211,7 @@
 				<include name="src/**/*.png" />
 				<include name="src/**/*.xsl" />
 				<include name="src/**/*.htm" />
+				<include name="bld/**" />
 				<include name="lib/common/**" />
 				<include name="lib/mono/**" />
 				<exclude name=".hg/**" />
