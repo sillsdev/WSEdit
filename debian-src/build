@@ -1,7 +1,7 @@
 #!/bin/sh
 NAME='wsedit'
 HERE=`pwd`
-TARGETS='hardy'
+TARGETS='hardy intrepid'
 REVISION=`echo $BUILD_NUMBER | sed -e 's/:.*$//'`
 MAJOR=`sed -e 's/\.${revision}//' bld/version.txt`
 rm -fr build
@@ -14,6 +14,6 @@ tar xzf ../wsedit_$MAJOR.$REVISION.orig.tar.gz
 cp -r ../../../debian-src debian
 export DEBSIGN_KEYID="mono teamcity"
 dch -v $MAJOR.$REVISION-1sil1 "Daily Build"
-#/home/mono/bin/mpdebuild --vadd .%d --distrib "$TARGETS" --configfile /home/mono/pbuilder/pbuilderrc-%d-new --auto-debsign
-/home/mono/bin/mpdebuild --vadd .%d --distrib "$TARGETS" --use-pdebuild-internal --configfile /home/mono/pbuilder/pbuilderrc-%d-new --auto-debsign
-#/home/mono/bin/mdput -d ~/pbuilder/results -t PALASO- -f $NAME_$MAJOR.$REVISION\*.changes $TARGETS
+/home/mono/bin/mpdebuild --vadd .%d --distrib "$TARGETS" --configfile /home/mono/pbuilder/pbuilderrc-%d-new --auto-debsign
+#/home/mono/bin/mpdebuild --vadd .%d --distrib "$TARGETS" --use-pdebuild-internal --configfile /home/mono/pbuilder/pbuilderrc-%d-new --auto-debsign
+/home/mono/bin/mdput -d ~/pbuilder/results -t PALASO- -f $NAME_$MAJOR.$REVISION\*.changes $TARGETS
