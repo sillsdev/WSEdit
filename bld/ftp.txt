@@ -1,0 +1,5 @@
+open ${publish.host}
+user ${publish.usr} ${publish.pwd}
+type binary
+put ${publish.src} ${publish.dst}
+quit

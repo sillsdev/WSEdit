@@ -1,1 +1,10 @@
+syntax: glob
 output
+obj
+_ReSharper*
+*.resharper*
+*.suo
+*.user
+release/**/*.exe
+*.tgz
+*.zip

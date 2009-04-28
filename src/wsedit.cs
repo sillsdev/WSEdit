@@ -14,7 +14,9 @@ namespace wsedit
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new WSPropertiesDialog());
+			WSPropertiesDialog dlg = new WSPropertiesDialog();
+			dlg.Text = String.Format("{0:s} {1:s}", Application.ProductName, Application.ProductVersion);
+			Application.Run(dlg);
 		}
 	}
 }

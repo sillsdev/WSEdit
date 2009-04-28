@@ -1,11 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wsedit", "wsedit\wsedit.csproj", "{734D7D79-3122-4806-B590-5E59EBF60114}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wsedit", "src\wsedit.csproj", "{734D7D79-3122-4806-B590-5E59EBF60114}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
