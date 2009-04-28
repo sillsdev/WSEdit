@@ -160,10 +160,10 @@
 		</foreach>
 	</target>
 
-	<target name="publish" depends="">
+	<target name="publish" depends="installer">
 		<property name="publish.host" value="palaso.org" />
-		<property name="publish.src" value="../release/Output/x.exe" />
-		<property name="publish.dst" value="software/x.exe" />
+		<property name="publish.src" value="../release/Output/WSEditSetup.exe" />
+		<property name="publish.dst" value="software/WSEditSetup.exe" />
 		<call target="publish.ftp" />
 	</target>
 
