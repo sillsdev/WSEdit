@@ -163,14 +163,7 @@
 	<target name="publish" depends="installer">
 		<property name="publish.host" value="palaso.org" />
 		<property name="publish.src" value="../release/Output/WSEditSetup.exe" />
-		<property name="publish.dst" value="software/WSEditSetup.exe" />
-		<call target="publish.ftp" />
-	</target>
-
-	<target name="publish_latest" depends="">
-		<property name="publish.host" value="palaso.org" />
-		<property name="publish.src" value="../release/Output/x.exe" />
-		<property name="publish.dst" value="software/x.exe" />
+		<property name="publish.dst" value="htdocs/install/wsedit/WSEditSetup_${version}.exe" />
 		<call target="publish.ftp" />
 	</target>
 
