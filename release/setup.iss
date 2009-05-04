@@ -38,6 +38,8 @@ Source: ..\output\release\wsedit.exe; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\Palaso.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\PalasoUIWindowsForms.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\LinqBridge.dll; DestDir: {app}; Flags: replacesameversion
+Source: ..\output\release\KeymanLink.dll; DestDir: {app}; Flags: replacesameversion
+Source: ..\output\release\Keyman7Interop.dll; DestDir: {app}; Flags: replacesameversion
 
 [Messages]
 WinVersionTooLowError=WSEdit requires Windows NT4, Windows 98 or later.

@@ -8,3 +8,4 @@ _ReSharper*
 release/**/*.exe
 *.tgz
 *.zip
+bld/build.bat
