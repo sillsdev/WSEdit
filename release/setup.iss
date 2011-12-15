@@ -4,7 +4,7 @@ EnableISX=true
 [Setup]
 AppName=Writing System Editor
 AppVerName=Writing System Editor ${version}
-MinVersion=4.1,4.0
+MinVersion=5.0
 DefaultDirName={pf}\WSEdit
 DefaultGroupName=WSEdit
 UninstallDisplayIcon={app}\wsedit.exe
