@@ -4,7 +4,6 @@ EnableISX=true
 [Setup]
 AppName=Writing System Editor
 AppVerName=Writing System Editor ${version}
-MinVersion=5.0,
 DefaultDirName={pf}\WSEdit
 DefaultGroupName=WSEdit
 UninstallDisplayIcon={app}\wsedit.exe
@@ -59,13 +58,12 @@ var
   dotNetNeeded: boolean;
   memoDependenciesNeeded: string;
 
-procedure isxdl_AddFile(URL, Filename: PChar);
+procedure isxdl_AddFile(URL, Filename: String);
 external 'isxdl_AddFile@files:isxdl.dll stdcall';
 function isxdl_DownloadFiles(hWnd: Integer): Integer;
 external 'isxdl_DownloadFiles@files:isxdl.dll stdcall';
-function isxdl_SetOption(Option, Value: PChar): Integer;
+function isxdl_SetOption(Option, Value: String): Integer;
 external 'isxdl_SetOption@files:isxdl.dll stdcall';
-
 
 const
   dotnetRedistURL = 'http://palaso.org/install/dotnet2/dotnetfx.exe';
