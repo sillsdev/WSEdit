@@ -1,9 +1,16 @@
 #!/usr/bin/make -f
 
 NANT=MONO_SHARED_DIR=/tmp nant -buildfile:bld/wsedit.mono.build
+PALASOVER=$(shell ls -1 externals/libpalaso-* | sed -e 's/externals\/libpalaso\-\(.*\).tar.gz/\1/')
+XBUILD=MONO_SHARED_DIR=/tmp /usr/bin/xbuild "/target:Compile" /property:Configuration=DebugMono /property:RootDir=externals/libpalaso-$(PALASOVER) externals/libpalaso-$(PALASOVER)/bld/build.mono.proj
+
 build: build-stamp
 build-stamp:
+	echo palasover is $(PALASOVER)
 	dh_testdir
+	tar xfz externals/libpalaso-$(PALASOVER).tar.gz
+	$(XBUILD)
+	cp libpalaso-$(PALASOVER)/output/DebugMono
 	$(NANT) build-only
 	touch build-stamp
 
@@ -11,6 +18,7 @@ clean:
 	dh_testdir
 	$(NANT) clean
 	rm -f *-stamp
+	rm -rf externals/libpalaso-$(PALASOVER)
 	dh_clean
 
 install: build install-stamp
@@ -18,14 +26,17 @@ install-stamp:
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	$(NANT) install -D:INSTALL_DIR=../debian/tmp
+	$(NANT) install -D:INSTALL_DIR=../debian/wsedit
 	dh_installdirs
 	dh_install
 	dh_installdocs
 	dh_installchangelogs
 	dh_compress
 	dh_fixperms
+	dh_clifixperms
 	dh_installdeb
+	dh_shlibdeps
+	dh_clideps -d -i
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
