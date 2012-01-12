@@ -3,13 +3,14 @@ Section: editors
 Priority: optional
 Maintainer: Cambell Prince <cambell_prince@sil.org>
 Build-Depends: debhelper (>=7), mono-gmcs (>=2.0), nant (>= 0.86+rc1), mono-xbuild, libmono2.0-cil, libmono-winforms2.0-cil, libmono-system-runtime2.0-cil, mono-devel, cli-common-dev (>= 0.7.0), libicu-cil
+Homepage: http://projects.palaso.org/projects/wsedit
 Standards-Version: 3.8.4
 
 Package: wsedit
 Section: editors
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}, ${cli:Depends}
-Description: WSEdit, a small tool for editing LDML writing system descriptions
+Description: a small tool for editing LDML writing system descriptions
  WSEdit provides a simple UI for editing LDML writing system descriptions.
  It is built using the Palaso library. The UI is available to be used
  as part of other applications.
