@@ -1,4 +1,11 @@
-wsedit (0.2.2-1) UNRELEASED; urgency=low
+wsedit (0.2.3-1) UNRELEASED; urgency=low
+
+  * new version to use palaso lib with auto keyboard switching disabled
+  * build depend on libenchant-dev
+
+ -- Daniel Glassey <daniel_glassey@sil.org>  Thu, 12 Jan 2012 16:37:31 +0700
+
+wsedit (0.2.2-1) lucid; urgency=low
 
   * add NDesk.DBus.dll.config to fix reference to libsocket
   * add Enchant.Net.dll.config to fix reference to libenchant
