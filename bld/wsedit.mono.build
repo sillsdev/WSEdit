@@ -219,6 +219,7 @@
 				<include name="lib/mono/**" />
 				<exclude name="lib/mono/Palaso*" />
 				<exclude name=".hg/**" />
+				<exclude name="bld/**/*.dll" />
 			</fileset>
 		</tar>
 	</target>
