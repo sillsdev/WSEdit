@@ -11,6 +11,6 @@ BASE=`cat ../bld/version.txt`
 ZIPTYPE='gz'
 DEST=../output
 
-cp ../building/$(PRODUCT)-$(BASE).tar.gz ~/upstream/$(PRODUCT)_$(BASE).orig.tar.gz
+cp ../building/${PRODUCT}-${BASE}.tar.gz ~/upstream/${PRODUCT}_${BASE}.orig.tar.gz
 
 source /home/bob/pbuilder/build.common
