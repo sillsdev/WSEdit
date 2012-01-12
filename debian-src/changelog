@@ -1,8 +1,9 @@
 wsedit (0.2.2-1) UNRELEASED; urgency=low
 
   * add NDesk.DBus.dll.config to fix reference to libsocket
+  * add Enchant.Net.dll.config to fix reference to libenchant
 
- -- Daniel Glassey <daniel@glassey>  Thu, 12 Jan 2012 15:39:42 +0700
+ -- Daniel Glassey <daniel_glassey@sil.org>  Thu, 12 Jan 2012 15:39:42 +0700
 
 wsedit (0.2.1-1) lucid; urgency=low
 
