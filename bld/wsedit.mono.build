@@ -103,12 +103,12 @@
 						"[assembly: AssemblyVersion(\"{0}\")]",
 						project.Properties["version"]
 					);
-					newText = Regex.Replace(newText, @"\[assembly: AssemblyVersion\("".*""\)\]", replacement);
+					newText = System.Text.RegularExpressions.Regex.Replace(newText, @"\[assembly: AssemblyVersion\("".*""\)\]", replacement);
 					replacement = string.Format(
 						"[assembly: AssemblyFileVersion(\"{0}\")]",
 						project.Properties["version"]
 					);
-					newText = Regex.Replace(newText, @"\[assembly: AssemblyFileVersion\("".*""\)\]", replacement);
+					newText = System.Text.RegularExpressions.Regex.Replace(newText, @"\[assembly: AssemblyFileVersion\("".*""\)\]", replacement);
 					StreamWriter writer = new StreamWriter(project.Properties["filename"], false);
 					writer.Write(newText);
 					writer.Close();
@@ -202,8 +202,8 @@
 	</target>
 
 	<target name="dist" depends="assemblyinfo make-output-dir, set-build-config, set-runtime-config">
-		<tar destfile="${project.output.dir}/wsedit-src-${version}.tar.gz" compression="GZip">
-			<fileset basedir="${project.base.dir}">
+		<tar destfile="${project.output.dir}/wsedit-${version}.tar.gz" compression="GZip">
+			<fileset basedir="${project.base.dir}" prefix="wsedit-${version}">
 				<include name="src/**/*.build" />
 				<include name="src/**/*.cs" />
 				<include name="src/**/*.resx" />
@@ -212,8 +212,12 @@
 				<include name="src/**/*.xsl" />
 				<include name="src/**/*.htm" />
 				<include name="bld/**" />
+				<include name="doc/**" />
+				<include name="externals/**" />
 				<include name="lib/common/**" />
+				<exclude name="lib/common/icu*" />
 				<include name="lib/mono/**" />
+				<exclude name="lib/mono/Palaso*" />
 				<exclude name=".hg/**" />
 			</fileset>
 		</tar>
@@ -239,9 +243,9 @@
 
 	<target name="install" depends="set-build-config, set-runtime-config, set-output-dir">
 		<property name="INSTALL_DIR" value="/" overwrite="false" />
-		<property name="USR_SHARE" value="${path::combine(INSTALL_DIR, 'usr/share/wsedit')}"/>
+		<property name="USR_LIB" value="${path::combine(INSTALL_DIR, 'usr/lib/wsedit')}"/>
 		<property name="USR_BIN" value="${path::combine(INSTALL_DIR, 'usr/bin')}"/>
-		<copy todir="${USR_SHARE}">
+		<copy todir="${USR_LIB}">
 			<fileset basedir="${project.output.dir}">
 				<include name="*" />
 				<exclude name="*Tests.dll" />
