@@ -1,3 +1,11 @@
+wsedit (0.2.4-1ubuntu1) lucid; urgency=low
+
+  * Open and save (on close) to working folder by default
+  * Option to open global/computer WS repo
+  * Option to open other directories 
+
+ -- Daniel Glassey <daniel_glassey@sil.org>  Fri, 13 Jan 2012 16:24:10 +0700
+
 wsedit (0.2.3-1) UNRELEASED; urgency=low
 
   * new version to use palaso lib with auto keyboard switching disabled
