@@ -36,7 +36,7 @@ install-stamp:
 	dh_installdocs
 	dh_installchangelogs
 	dh_compress
-	dh_fixperms
+	dh_fixperms -X WritingSystemRepository
 	dh_clifixperms
 	dh_installdeb
 	dh_shlibdeps
