@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using Palaso.UI.WindowsForms.WritingSystems;
 using Palaso.TestUtilities;
@@ -40,17 +41,21 @@ namespace wsedit
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			var folder = new TemporaryFolder("WS-Edit");
-			var repository = LdmlInFolderWritingSystemRepository.Initialize(folder.Path,
+
+			GlobalWritingSystemRepository.Initialize(DummyWritingSystemHandler.onMigration);
+
+			//var folder = new TemporaryFolder("WS-Edit");
+			var folder = Directory.GetCurrentDirectory();
+			var repository = LdmlInFolderWritingSystemRepository.Initialize(folder,
 		DummyWritingSystemHandler.onMigration,
 		DummyWritingSystemHandler.onLoadProblem);
 
 			var dlg = new WritingSystemSetupDialog(repository);
 
 			dlg.WritingSystemSuggestor.SuggestVoice = true;
+			dlg.WritingSystemSuggestor.OtherKnownWritingSystems = null;
 
-//            WSPropertiesDialog dlg = new WSPropertiesDialog();
-			dlg.Text = String.Format("{0:s} {1:s}", Application.ProductName, Application.ProductVersion);
+			dlg.Text = String.Format("{0:s} {1:s} in {2}", Application.ProductName, Application.ProductVersion, folder);
 			Application.Run(dlg);
 		}
 	}
