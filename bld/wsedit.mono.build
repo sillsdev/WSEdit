@@ -246,6 +246,11 @@
 		<property name="INSTALL_DIR" value="/" overwrite="false" />
 		<property name="USR_LIB" value="${path::combine(INSTALL_DIR, 'usr/lib/wsedit')}"/>
 		<property name="USR_BIN" value="${path::combine(INSTALL_DIR, 'usr/bin')}"/>
+		<property name="VAR_LIB" value="${path::combine(INSTALL_DIR, 'var/lib/SIL/WritingSystemRepository')}"/>
+		<mkdir dir="${VAR_LIB}" />
+		<exec program="chmod" workingdir="${VAR_LIB}/..">
+			<arg line="777 WritingSystemRepository" />
+		</exec>
 		<copy todir="${USR_LIB}">
 			<fileset basedir="${project.output.dir}">
 				<include name="*" />
