@@ -1,4 +1,12 @@
-wsedit (0.2.4-1ubuntu1) lucid; urgency=low
+wsedit (0.2.5-1) lucid; urgency=low
+
+  * fix problems when deleting writing systems
+  * set a default font in font settings
+       still problems in the font settings esp in test area
+
+ -- Daniel Glassey <daniel_glassey.org>  Tue, 17 Jan 2012 13:10:13 +0700
+
+wsedit (0.2.4-1) lucid; urgency=low
 
   * Open and save (on close) to working folder by default
   * Option to open global/computer WS repo
