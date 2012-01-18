@@ -160,9 +160,29 @@
 		</foreach>
 	</target>
 
+  <target name="MakeDownloadPointers" depends="version" >
+
+	<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
+	<Copy SourceFiles ="$(teamcity_build_checkoutDir)\release\DownloadPointers.htm"
+		   DestinationFolder ="$(teamcity_build_checkoutDir)\release\output"/>
+
+	<!-- replace some parts of the file with the version number & date -->
+	<!-- don't know how to do this in nant, and not the time to port to msbuild
+	<FileUpdate File="$(teamcity_build_checkoutDir)\output\Installer\DownloadPointers.htm"
+				DatePlaceholder='DEV_RELEASE_DATE'
+				Regex='DEV_VERSION_NUMBER'
+				ReplacementText="$(Version)" />
+	-->
+
+	<!-- push up to the web so that on our downloads page, we can give a link to the latest version -->
+				<exec program="c:\program files\cwRsync\bin\rsync.exe">
+						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/DownloadPointers.htm" bob@wesay.org:/var/www/downloads/wsedit/DownloadPointers.htm' />
+				</exec>
+  </target>
+
 		<target name="publish.rsync" depends="installer" >
 				<exec program="c:\program files\cwRsync\bin\rsync.exe">
-						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/WSEditSetup.exe" bob@wesay.org:/var/www/downloads/wesedit/WSEditSetup_${version}.exe' />
+						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/WSEditSetup.exe" bob@wesay.org:/var/www/downloads/wsedit/WSEditSetup_${version}.exe' />
 				</exec>
 		</target>
 
