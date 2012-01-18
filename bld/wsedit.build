@@ -196,6 +196,12 @@
 		<call target="MakeDownloadPointers" />
 		</target>
 
+		<target name="publish.altbuild" depends="installer" >
+				<exec program="c:\program files\cwRsync\bin\rsync.exe">
+						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/WSEditSetup.exe" bob@wesay.org:/var/www/downloads/wsedit/WSEditSetup-alt_${version}.exe' />
+				</exec>
+		</target>
+
 	<target name="publish" depends="installer">
 		<property name="publish.host" value="palaso.org" />
 		<property name="publish.src" value="../release/Output/WSEditSetup.exe" />
