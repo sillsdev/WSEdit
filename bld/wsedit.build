@@ -165,6 +165,8 @@
 	<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
 	<copy file="..\release\DownloadPointers.htm" tofile="..\release\output\DownloadPointers.htm" overwrite="true" />
 
+	<tstamp property="build.date" pattern="dd/MMM/yyyy" verbose="true" />
+
 	<!-- replace some parts of the file with the version number & date -->
 	<!-- don't know how to do this in nant, and not the time to port to msbuild
 	<FileUpdate File="$(teamcity_build_checkoutDir)\output\Installer\DownloadPointers.htm"
@@ -176,7 +178,7 @@
 			<loadfile file="..\release\output\DownloadPointers.htm" property="token-file">
 				<filterchain>
 					<replacetokens>
-						<token key="DEV_RELEASE_DATE" value="${datetime::now().ToString('dd/MMM/yyyy')}" />
+						<token key="DEV_RELEASE_DATE" value="${build.date}" />
 						<token key="DEV_VERSION_NUMBER'" value="${version}" />
 					</replacetokens>
 				</filterchain>
