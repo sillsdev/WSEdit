@@ -174,9 +174,18 @@
 				ReplacementText="$(Version)" />
 	-->
 
+			<loadfile file="$(teamcity_build_checkoutDir)\release\output\DownloadPointers.htm" property="token-file">
+				<filterchain>
+					<replacetokens>
+						<token key="DEV_RELEASE_DATE" value="${datetime::now().ToString("dd/MMM/yyyy")}" />
+						<token key="DEV_VERSION_NUMBER'" value="${version}" />
+					</replacetokens>
+				</filterchain>
+			</loadfile>
+
 	<!-- push up to the web so that on our downloads page, we can give a link to the latest version -->
 				<exec program="c:\program files\cwRsync\bin\rsync.exe">
-						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/DownloadPointers.htm" bob@wesay.org:/var/www/downloads/wsedit/DownloadPointers.htm' />
+						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/DownloadPointers.htm" bob@wesay.org:/var/www/downloads/wsedit/Download.htm' />
 				</exec>
   </target>
 
@@ -184,6 +193,7 @@
 				<exec program="c:\program files\cwRsync\bin\rsync.exe">
 						<arg line='-vz -p --chmod=ug+rw -e"\"c:\program files\cwRsync\bin\ssh\" -oUserKnownHostsFile=C:\BuildAgent\conf\known_hosts -oIdentityFile=C:\BuildAgent\conf\bob.key -l bob"  "../release/Output/WSEditSetup.exe" bob@wesay.org:/var/www/downloads/wsedit/WSEditSetup_${version}.exe' />
 				</exec>
+		<call target="MakeDownloadPointers" />
 		</target>
 
 	<target name="publish" depends="installer">
