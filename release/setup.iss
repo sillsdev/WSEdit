@@ -35,6 +35,7 @@ DisableReadyPage=true
 Source: c:\Program Files\ISTool\isxdl.dll; Flags: dontcopy
 Source: ..\output\release\wsedit.exe; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\Palaso.dll; DestDir: {app}; Flags: replacesameversion
+Source: ..\output\release\Palaso.TestUtilities.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\PalasoUIWindowsForms.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\LinqBridge.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\KeymanLink.dll; DestDir: {app}; Flags: replacesameversion
