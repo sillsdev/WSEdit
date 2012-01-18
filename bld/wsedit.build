@@ -177,7 +177,7 @@
 			<loadfile file="$(teamcity_build_checkoutDir)\release\output\DownloadPointers.htm" property="token-file">
 				<filterchain>
 					<replacetokens>
-						<token key="DEV_RELEASE_DATE" value="${datetime::now().ToString("dd/MMM/yyyy")}" />
+						<token key="DEV_RELEASE_DATE" value="${datetime::now().ToString('dd/MMM/yyyy')}" />
 						<token key="DEV_VERSION_NUMBER'" value="${version}" />
 					</replacetokens>
 				</filterchain>
