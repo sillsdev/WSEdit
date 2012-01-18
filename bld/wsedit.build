@@ -183,6 +183,7 @@
 					</replacetokens>
 				</filterchain>
 			</loadfile>
+			<echo file="..\release\output\DownloadPointers.htm">${token-file}</echo>
 
 	<!-- push up to the web so that on our downloads page, we can give a link to the latest version -->
 				<exec program="c:\program files\cwRsync\bin\rsync.exe">
