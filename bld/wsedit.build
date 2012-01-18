@@ -165,7 +165,7 @@
 	<!-- copy it so we aren't modifying the original, which then is a pain on dev machines -->
 	<copy file="..\release\DownloadPointers.htm" tofile="..\release\output\DownloadPointers.htm" overwrite="true" />
 
-	<tstamp property="build.date" pattern="dd/MMM/yyyy" verbose="true" />
+	<tstamp property="build.date" pattern="dd MMM yyyy" verbose="true" />
 
 	<!-- replace some parts of the file with the version number & date -->
 	<!-- don't know how to do this in nant, and not the time to port to msbuild
