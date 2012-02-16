@@ -46,6 +46,11 @@ namespace wsedit
 
 			//var folder = new TemporaryFolder("WS-Edit");
 			var folder = Directory.GetCurrentDirectory();
+			string wspath = Path.Combine(folder, "WritingSystems");
+			if (Directory.Exists(wspath))
+			{
+				folder = wspath;
+			}
 			var repository = LdmlInFolderWritingSystemRepository.Initialize(folder,
 		DummyWritingSystemHandler.onMigration,
 		DummyWritingSystemHandler.onLoadProblem);
