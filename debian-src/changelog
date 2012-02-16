@@ -1,3 +1,9 @@
+wsedit (0.2.6-1) lucid; urgency=low
+
+  * use WritingSystems subdir if it exists (solves problem on windows)
+
+ -- Daniel Glassey <daniel_glassey@sil.org>  Thu, 16 Feb 2012 15:10:48 +0700
+
 wsedit (0.2.5-1) lucid; urgency=low
 
   * fix problems when deleting writing systems
