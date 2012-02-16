@@ -10,7 +10,7 @@ UninstallDisplayIcon={app}\wsedit.exe
 Compression=lzma
 SolidCompression=true
 OutputBaseFilename=WSEditSetup
-AppCopyright=2009 SIL International and Payap University
+AppCopyright=2009-2012 SIL International and Payap University
 VersionInfoVersion=${version}
 VersionInfoCompany=palaso.org Payap Language Software Group
 VersionInfoDescription=CLDR LDML Writing System Editor
@@ -30,6 +30,7 @@ DisableStartupPrompt=true
 DisableReadyPage=true
 
 [Dirs]
+Name: "{app}\WritingSystems"
 
 [Files]
 Source: c:\Program Files\ISTool\isxdl.dll; Flags: dontcopy
