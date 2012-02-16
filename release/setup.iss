@@ -42,6 +42,7 @@ Source: ..\output\release\LinqBridge.dll; DestDir: {app}; Flags: replacesamevers
 Source: ..\output\release\KeymanLink.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\Keyman7Interop.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\output\release\icu.net.dll; DestDir: {app}; Flags: replacesameversion
+Source: ..\output\release\Enchant.Net.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\lib\windows\icudt40.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\lib\windows\icuuc40.dll; DestDir: {app}; Flags: replacesameversion
 Source: ..\lib\windows\icuin40.dll; DestDir: {app}; Flags: replacesameversion
