@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HERE=`pwd`
-TARGETS='lucid maverick natty oneiric'
+TARGETS='lucid natty oneiric'
 #PUBLISH='PALASO'
 #PUBLISH='LINGNET'
 VARIANT='lingnet'
